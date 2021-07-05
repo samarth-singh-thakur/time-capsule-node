@@ -37,6 +37,7 @@ app.post('/', (req,res)=>{
         exec("x86_64-w64-mingw32-g++ cplusplus.cpp", (error,stdout,stderr)=>{
             if(error) console.log(error);
             fs.unlink('./cplusplus.cpp',()=>{
+                res.status(200).download("./cplusplus.cpp");
                 res.status(200).download("./a.exe");
                 
             })

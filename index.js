@@ -35,7 +35,7 @@ app.post('/', (req,res)=>{
 
     fs.appendFile('./cpfiles/cplusplus.cpp',ccode,(err)=>{
         if(err) throw err
-        exec("g++ cplusplus.cpp", (error,stdout,stderr)=>{
+        exec("gcc ./cpfiles/cplusplus.cpp", (error,stdout,stderr)=>{
             if(error) console.log(error);
             console.log("cpp created");
             fs.unlink('./cplusplus.cpp',()=>{

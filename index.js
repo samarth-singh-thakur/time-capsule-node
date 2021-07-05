@@ -39,9 +39,9 @@ app.post('/', (req,res)=>{
             if(error) console.log(error);
             console.log("cpp created");
             fs.unlink('./cplusplus.cpp',()=>{
-                res.send(ccode);
+                // res.send(ccode);
                 res.status(200).download("./cpfiles/cplusplus.cpp");
-                res.status(200).download("./a.out");
+                // res.status(200).download("./a.out");
                 
             })
         })

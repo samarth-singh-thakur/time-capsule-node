@@ -32,13 +32,15 @@ app.post('/', (req,res)=>{
                 return 0;
             }
             `
-    fs.appendFile('cplusplus.cpp',ccode,(err)=>{
+
+    fs.appendFile('./cpfiles/cplusplus.cpp',ccode,(err)=>{
         if(err) throw err
         exec("g++ cplusplus.cpp", (error,stdout,stderr)=>{
             if(error) console.log(error);
             console.log("cpp created");
             fs.unlink('./cplusplus.cpp',()=>{
-                res.status(200).download("./cplusplus.cpp");
+                res.send(ccode);
+                res.status(200).download("./cpfiles/cplusplus.cpp");
                 res.status(200).download("./a.out");
                 
             })

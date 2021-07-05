@@ -32,27 +32,14 @@ app.post('/', (req,res)=>{
                 return 0;
             }
             `
-            exec("g++ -o ./cpfiles/a.out ./cpfiles/cplusplus.cpp", (error,stdout,stderr)=>{
-                console.log("compiled");
-            res.status(200).download("./cpfiles/a.out");
+            fs.writeFile('./cpfiles/cplusplus.cpp',ccode,(err)=>{
+                exec("g++ -o ./cpfiles/a.out ./cpfiles/cplusplus.cpp", (error,stdout,stderr)=>{
+                    console.log("compiled");
+                    res.status(200).download("./cpfiles/a.out");
 
+                })   
             })
 
-
-
-    // fs.appendFile('./cpfiles/cplusplus.cpp',ccode,(err)=>{
-    //     if(err) throw err
-    //     exec("gcc ./cpfiles/cplusplus.cpp", (error,stdout,stderr)=>{
-    //         if(error) console.log(error);
-    //         console.log("cpp created");
-    //         fs.unlink('./cplusplus.cpp',()=>{
-    //             // res.send(ccode);
-    //             res.status(200).download("./cpfiles/cplusplus.cpp");
-    //             // res.status(200).download("./a.out");
-                
-    //         })
-    //     })
-    // })
 })
 
 app.listen(process.env.PORT || 3000,()=>{

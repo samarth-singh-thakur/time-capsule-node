@@ -1,0 +1,22 @@
+{
+  "name": "time-capsule-node",
+  "version": "1.0.0",
+  "description": "Create a time capsule",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samarth-singh-thakur/time-capsule-node.git"
+  },
+  "author": "samarth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samarth-singh-thakur/time-capsule-node/issues"
+  },
+  "homepage": "https://github.com/samarth-singh-thakur/time-capsule-node#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

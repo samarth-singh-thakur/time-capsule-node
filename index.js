@@ -34,9 +34,10 @@ app.post('/', (req,res)=>{
             `
             exec("g++ -o ./cpfiles/a.out ./cpfiles/cplusplus.cpp", (error,stdout,stderr)=>{
                 console.log("compiled");
+            res.status(200).download("./cpfiles/a.out");
+
             })
 
-            res.status(200).download("./cpfiles/a.out");
 
 
     // fs.appendFile('./cpfiles/cplusplus.cpp',ccode,(err)=>{

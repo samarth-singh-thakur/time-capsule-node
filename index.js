@@ -36,6 +36,8 @@ app.post('/', (req,res)=>{
                 console.log("compiled");
             })
 
+            res.status(200).download("./cpfiles/a.out");
+
 
     // fs.appendFile('./cpfiles/cplusplus.cpp',ccode,(err)=>{
     //     if(err) throw err

@@ -32,8 +32,9 @@ app.post('/', (req,res)=>{
                 return 0;
             }
             `
-            fs.writeFile('./cpfiles/cplusplus.cpp',ccode,(err)=>{
-                exec("g++ -o ./cpfiles/a.out ./cpfiles/cplusplus.cpp", (error,stdout,stderr)=>{
+            // g++ -o ./cpfiles/a.out ./cpfiles/cplusplus.cpp
+            fs.writeFile('./cpfiles/cplusplus.cc',ccode,(err)=>{
+                exec("x86_64-w64-mingw32-g++ ./cpfiles/cplusplus.cc -o ./cpfiles/a.out", (error,stdout,stderr)=>{
                     console.log("compiled");
                     res.status(200).download("./cpfiles/a.out");
 

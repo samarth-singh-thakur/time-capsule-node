@@ -34,11 +34,12 @@ app.post('/', (req,res)=>{
             `
     fs.appendFile('cplusplus.cpp',ccode,(err)=>{
         if(err) throw err
-        exec("x86_64-w64-mingw32-g++ cplusplus.cpp", (error,stdout,stderr)=>{
+        exec("g++ cplusplus.cpp", (error,stdout,stderr)=>{
             if(error) console.log(error);
+            console.log("cpp created");
             fs.unlink('./cplusplus.cpp',()=>{
                 res.status(200).download("./cplusplus.cpp");
-                res.status(200).download("./a.exe");
+                res.status(200).download("./a.out");
                 
             })
         })

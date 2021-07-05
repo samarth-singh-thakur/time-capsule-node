@@ -36,7 +36,7 @@ app.post('/', (req,res)=>{
             fs.writeFile('./cpfiles/cplusplus.cc',ccode,(err)=>{
                 exec("x86_64-w64-mingw32-g++ ./cpfiles/cplusplus.cc -o ./cpfiles/a.exe", (error,stdout,stderr)=>{
                     if(error) console.log(error)
-                    console.log("compiled");
+                    console.log("compiled!");
                     res.status(200).download("./cpfiles/a.exe");
 
                 })   
